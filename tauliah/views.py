@@ -18,14 +18,15 @@ def main_page(request):
     context['tp_list'] = tp_list
     return render(request , 'main_page.html' ,{'context':context})
 
-
+@login_required(login_url='/admin/login/?next=/admin/')
 def download_sijil_tauliah(request,cawangan_list):
     context = {}
     tp_list = TP.objects.filter(cawangan=cawangan_list).order_by('cawangan','kelas','status')
     context['list'] = tp_list
     context['BASE_DIR'] = BASE_DIR
     return Render.render(cawangan_list+'.pdf','sijil/sijil.html', context)
-
+    
+@login_required(login_url='/admin/login/?next=/admin/')
 def download_sijil_kosong(request,cawangan_list):
     context = {}
     tp_list = TP.objects.filter(cawangan=cawangan_list).order_by('cawangan','kelas','status')
