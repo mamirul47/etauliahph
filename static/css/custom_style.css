@@ -1,0 +1,41 @@
+.table-header-center {
+    text-align: center;
+}
+
+body {
+    background-color: #3d54a5;
+}
+
+.page-title {
+    color: #fff;
+}
+
+.breadcrumb-item.active {
+    color: #fff;
+}
+
+.page-title-box .breadcrumb .breadcrumb-item a {
+    color: #fff;
+}
+
+#topbar .navbar-custom {
+    background-color: #fff !important;
+}
+
+.table-header-success {
+    background: #3d54a5;
+    color: azure;
+}
+
+.alert {
+    font-size: 18px;
+}
+
+.alert-info {
+    color: #374ea2;
+}
+
+.table-header-success {
+    background: #3d54a5;
+    color: azure;
+}

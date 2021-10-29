@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+ <div class="row">
+        <div class="col-lg-12 col-sm-12 col-xl-12">
+            <div class="card m-b-30">
+                <div class="card-body table-responsive">
+                    <h4 class="mt-0 header-title">Senarai Tenaga Pengajar</h4>
+                    {% for x in context.cawangan_list %}
+                        <a href="{% url 'sijil_tauliah'  x.cawangan %}" class="btn btn-success">{{x.cawangan}}</a>
+                    {% endfor %}
+                    <table id="datatable_soalanAudit" class="table table-bordered">
+                        <thead>
+                        <tr class="table-header-center">
+                            <th>CAWANGAN</th>
+                            <th>KELAS</th>
+                            <th>NAMA</th>
+                            <th>NO.KP</th>
+                            <th>STATUS</th>
+                            <th>PENYELIA</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for c in context.tp_list %}
+                        <tr>
+                            <td>{{c.cawangan}}</td>
+                            <td>{{c.kelas}}</td>
+                            <td>{{c.nama}}</td>
+                            <td>{{c.noKP}}</td>
+                            <td>{{c.status}}</td>
+                            <td>{{c.penyelia}}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div> <!-- end col -->
+    </div> <!-- end row -->
+
+{% endblock  %}
+{% block actionScript %}
+<script>
+</script>
+{% endblock %}
+
