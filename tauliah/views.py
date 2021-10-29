@@ -7,6 +7,8 @@ from django.db.models import Count
 # RUJUKAN :  https://xhtml2pdf.readthedocs.io/en/latest/format_html.html
 
 # Create your views here.
+from django.contrib.auth.decorators import login_required
+@login_required(login_url='/admin/login/?next=/admin/')
 def main_page(request):
     context={}
     tp_list = TP.objects.all().order_by('cawangan','kelas','status')
