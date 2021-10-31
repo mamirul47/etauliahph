@@ -88,10 +88,18 @@
     <table>
         <tr><td><p class="nama_tp">{{x.nama}}</p></td></tr>
     </table>
+    {% if x.status == "PENYELIA" or x.status == "JURULATIH" %}
+    <table>
+        <tr><td><p class="top_text2" >Dilantik sebagai<p></td></tr>
+        <tr><td>&nbsp;</td></tr>
+    </table>
+    {% else %}
     <table>
         <tr><td><p class="top_text2" >sebagai<p></td></tr>
         <tr><td>&nbsp;</td></tr>
     </table>
+    {% endif %}
+
     <table>
         <tr><td><p class="nama_tp">{{x.status}}</p></td></tr>
     </table>
