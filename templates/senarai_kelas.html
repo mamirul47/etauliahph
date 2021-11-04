@@ -8,9 +8,16 @@
             <div class="card m-b-30">
                 <div class="card-body table-responsive">
                     <h4 class="mt-0 header-title">Senarai Tenaga Pengajar</h4>
-                    {% for x in context.cawangan_list %}
-                        <a href="{% url 'senarai_kelas'  x.cawangan %}" class="btn btn-success">{{x.cawangan}}</a>
+                    <a href="{% url 'sijil_tauliah' context.kelas_list.0.cawangan  %}" target="_blank" class="btn btn-danger">CAWANGAN : {{context.kelas_list.0.cawangan}}</a>
+                    <hr>
+                    <select class="select2" id="kelas_list">
+                    {% for x in context.kelas_list %}
+                        <option value="{% url 'download_sijil_tauliah_bykelas' x.cawangan x.kelas %}">{{x.kelas}}</option>
                     {% endfor %}
+                    </select>
+                    <p></p>
+                    <button id="kelas_btn" class="btn btn-info">Jana by kelas</button>
+                    <hr>
                     <table id="datatable_soalanAudit" class="table table-bordered">
                         <thead>
                         <tr class="table-header-center">
@@ -45,6 +52,10 @@
 {% endblock  %}
 {% block actionScript %}
 <script>
+
+$("#kelas_btn").on("click",function() {
+    window.open($("#kelas_list").val(), '_blank');
+});
+
 </script>
 {% endblock %}
-
