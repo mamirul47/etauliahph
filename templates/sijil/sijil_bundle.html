@@ -1,0 +1,169 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Soalan Audit</title>
+    <style type="text/css">
+        @page {
+            size: A4 portrait;
+            background: url("static/sijil/sijil_bg.png") ;
+
+
+            @frame content_frame {          /* Content Frame */
+                left: 40pt; width: 512pt; top: 200pt; height: 632pt;
+                {% comment %} -pdf-frame-border: 1;  {% endcomment %}
+            }
+        }
+
+        p{
+            text-align:center;
+        }
+
+        .top_text{
+            font-size:17pt;
+            font-weight:bold;
+            font-family:"Calibri";
+        }
+
+        .top_text2{
+            font-size:14pt;
+            font-style:italic;
+            font-family:"Goudy Old Style";
+        }
+
+        .nama_tp{
+            font-size:16pt;
+            font-weight:900;
+            font-family:"Verdana";
+        }
+
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+
+        .su_mpp{
+            font-size:11pt;
+            font-weight:bold;
+            font-family:"Verdana";
+        }
+
+    </style>
+
+<body>
+
+
+    {% if list.status == "PENYELIA" or list.status == "JURULATIH"%}
+        <p class="top_text" style="line-height: 0.9;">TAULIAH TENAGA PENGAJAR<br>
+            <img  src="{{BASE_DIR}}{% static 'sijil/bismillah.png' %}" alt="" height="60"><br>
+        TAHUN HIJRAH 1443<p>
+    {% else %}
+    <table>
+        <tr>
+            <td><p class="top_text">TAULIAH TENAGA PENGAJAR<p></td>
+        <tr>
+        <tr>
+            <td><p class="top_text">TAHUN HIJRAH 1443<p></td>
+        </tr>
+    </table>
+    {% endif %}
+
+    {% if list.status == "PENYELIA" or list.status == "JURULATIH" %}
+    <table>
+        <tr><td><p class="top_text2" >Adalah dengan ini dimaklumkan bahawa saudara/i<p></td></tr>
+    </table>
+
+    {% else %}
+    <table>
+        <tr><td><p class="top_text2" >Adalah dengan ini dimaklumkan bahawa<p></td></tr>
+        <tr><td><p class="top_text2" >YM Kolonel (PA) Dr. Hj. Md. Radzi Bin Hj. Hanafi<p></td></tr>
+        <tr><td><p class="top_text2" >Pewaris Mutlak Silat Cekak<p></td></tr>
+        <tr><td><p class="top_text2" >telah melantik saudara/i<p></td></tr>
+    </table>
+    {% endif %}
+
+    <table>
+        <tr><td><p class="nama_tp">{{list.nama}}</p></td></tr>
+    </table>
+    {% if list.status == "PENYELIA" or list.status == "JURULATIH" %}
+    <table>
+        <tr><td><p class="top_text2" >Dilantik sebagai<p></td></tr>
+        <tr><td>&nbsp;</td></tr>
+    </table>
+    {% else %}
+    <table>
+        <tr><td><p class="top_text2" >sebagai<p></td></tr>
+        <tr><td>&nbsp;</td></tr>
+    </table>
+    {% endif %}
+
+    <table>
+        <tr><td><p class="nama_tp">{{list.status}}</p></td></tr>
+    </table>
+    <table>
+        <tr><td><p class="top_text2" >bagi  PUSAT LATIHAN / KELAS LATIHAN<p></td></tr>
+        <tr><td>&nbsp;</td></tr>
+    </table>
+    <table>
+        <tr><td><p class="nama_tp">{{list.kelas}}</p></td></tr>
+    </table>
+
+
+    {% if list.status != "PENYELIA" %}
+    <table>
+        <tr><td><p class="top_text2" >Penyelia kelas ini adalah saudara/i<p></td></tr>
+        <tr><td>&nbsp;</td></tr>
+    </table>
+    <table>
+        <tr><td><p class="nama_tp">{{list.penyelia}}</p></td></tr>
+        <tr><td>&nbsp;</td></tr>
+    </table>
+    {% endif %}
+
+    <table>
+        <tr><td><p class="top_text2" >Saudara/i hendaklah bertanggungjawab kepada kelas<p></td></tr>
+        <tr><td><p class="top_text2" >tersebut dan mematuhi segala peraturan tenaga pengajar<p></td></tr>
+        <tr><td><p class="top_text2" >yang telah ditetapkan.<p></td></tr>
+    </table>
+
+    <table>
+        <tr><td><p class="top_text2" >Diharapkan saudara/i dapat menjalankan tanggungjawab<p></td></tr>
+        <tr><td><p class="top_text2" >dengan penuh amanah dan berdedikasi.<p></td></tr>
+    </table>
+
+
+    {% if list.status == "PENYELIA" or list.status == "JURULATIH" %}
+    <p class="top_text2" >Terima Kasih.<p>
+    <p>
+        <img class="center" src="{{BASE_DIR}}{% static 'sijil/sign_ym.png' %}" alt="" height="70" width="150pt">
+    <p>
+
+    <table style="page-break-after: always;">
+        <tr><td><p class="su_mpp" >KOL. KEHORMAT (PA) DR HJ MD RADZI BIN HJ HANAFI<p></td></tr>
+        <tr><td><p class="su_mpp" >PEWARIS MUTLAK SILAT CEKAK <p></td></tr>
+    </table>
+
+
+    {% else %}
+
+    <p><img class="center" src="{{BASE_DIR}}{% static 'sijil/sign_pakzam.png' %}" alt="" height="70"><p>
+
+    <table style="page-break-after: always;">
+        <tr><td><p class="top_text2" >Terima Kasih.<p></td></tr>
+        <tr><td><p class="su_mpp" >ZAMRI BIN HASAN<p></td></tr>
+        <tr><td><p class="su_mpp" >SETIAUSAHA<p></td></tr>
+        <tr><td><p class="su_mpp" >MAJLIS PERGURUAN DAN PERSILATAN<p></td></tr>
+    </table>   
+
+    {% endif %} 
+    
+
+    
+
+
+</body>
+
+
+</html>

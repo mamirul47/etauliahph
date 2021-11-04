@@ -18,6 +18,14 @@
                     <p></p>
                     <button id="kelas_btn" class="btn btn-info">Jana by kelas</button>
                     <hr>
+                    <select class="select2" id="kelas_list_zip">
+                    {% for x in context.kelas_list %}
+                        <option value="{% url 'download_sijil_tauliah_bykelas_zip' x.cawangan x.kelas %}">{{x.kelas}}</option>
+                    {% endfor %}
+                    </select>
+                    <p></p>
+                    <button id="kelas_btn_zip" class="btn btn-info">Jana by kelas (ZIP)</button>
+                    <hr>
                     <table id="datatable_soalanAudit" class="table table-bordered">
                         <thead>
                         <tr class="table-header-center">
@@ -55,6 +63,10 @@
 
 $("#kelas_btn").on("click",function() {
     window.open($("#kelas_list").val(), '_blank');
+});
+
+$("#kelas_btn_zip").on("click",function() {
+    window.open($("#kelas_list_zip").val(), '_blank');
 });
 
 </script>

@@ -18,6 +18,8 @@ class Render:
         if not pdf.err:
             newPDF = HttpResponse(response.getvalue(), content_type='application/pdf')
             newPDF['Content-Disposition'] = 'attachment; filename="'+filename+'"'
+            newPDF['Content-Length'] = len(response.getbuffer())
+            newPDF['Len'] = len(response.getbuffer())
             #return HttpResponse(response.getvalue(), content_type='application/pdf')
             return newPDF
         else:
