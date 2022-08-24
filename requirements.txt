@@ -3,7 +3,7 @@ asgiref==3.4.1
 defusedxml==0.7.1
 diff-match-patch==20200713
 Django==3.2.*
-django-heroku
+#django-heroku
 django-import-export==2.6.1
 dj-database-url
 et-xmlfile==1.1.0
@@ -14,6 +14,7 @@ MarkupPy==1.14
 odfpy==1.4.1
 openpyxl==3.0.9
 Pillow==8.4.0
+psycopg2-binary
 PyPDF2==1.26.0
 python-bidi==0.4.2
 pytz==2021.3
@@ -22,6 +23,7 @@ reportlab==3.6.2
 six==1.16.0
 sqlparse==0.4.2
 tablib==3.0.0
+uvicorn
 webencodings==0.5.1
 xhtml2pdf==0.2.5
 xlrd==2.0.1
