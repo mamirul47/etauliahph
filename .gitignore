@@ -1,6 +1,6 @@
 *.pyc
 db.sqlite3
-/Database
+/database
 .env
 /env
 /staticfiles
