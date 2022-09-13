@@ -31,4 +31,4 @@ services:
     security_opt:
       - seccomp:unconfined
     ports:
-      - "8081:80"
+      - "80:80"
